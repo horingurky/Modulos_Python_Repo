@@ -9,19 +9,19 @@
 class Libro():
 
 # def __init__....:
-    def __init__(self,titulo,autor,paginas,disponible = True):
+    def __init__(self,titulo,autor,paginas,disponible = True): # el True lo pone si no pones el parametro
         self.titulo = titulo
         self.autor = autor
         self.paginas = paginas
         self.disponible = disponible
 
-# def devolver...    
+# def devolver...
     def devolver(self):
         if self.disponible == False:
             self.disponible = True
             return (f"El libro {self.titulo} ha sido devuelto")
         else:
-            return self.informacion()
+            return (f"El libro {self.titulo} NO está disponible")
         
     # def prestar...
     def prestar(self):
@@ -29,14 +29,16 @@ class Libro():
             self.disponible = False
             return (f"El libro {self.titulo} ha sido prestado")
         else:
-            return self.informacion()
+            return (f"El libro {self.titulo} no está disponible")
+            
         
     # def informacion...
     def informacion(self):
-        if self.disponible == True:
-            return (f"El libro {self.titulo} está disponible")
-        else:
-            return (f"El libro {self.titulo} NO está disponible")
+        estado = f"Disponible" if self.disponible else "Prestado"
+        return (f"Titulo: {self.titulo}\nAutor: {self.autor}\nNumero de pahinas: {self.paginas}\nEstado: {estado}")
+
+            
+                    
 
 
 # Prueba de la clase Libro
